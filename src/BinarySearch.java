@@ -15,7 +15,11 @@ public class BinarySearch implements Strategy {
     Arrays.sort(temp);
 
     //2. Perform Search
-    int resultIndex = binarySearchUsingRecursion(temp, 0, temp.length, item);
+    //2.1 Using recursion. Uncomment below line to use recursion.
+    //int resultIndex = binarySearchUsingRecursion(temp, 0, temp.length, item);
+
+    //2.2 Using iteration.
+    int resultIndex = binarySearchUsingIteration(temp, item);
 
     if (resultIndex == -1) {
       return -1;
@@ -31,7 +35,7 @@ public class BinarySearch implements Strategy {
   }
 
   private int binarySearchUsingRecursion(int[] arr, int lowerBound, int upperBound, int item) {
-    if (upperBound > lowerBound) {
+    if (upperBound >= lowerBound) {
 
       int mid = lowerBound + (upperBound - lowerBound) / 2;
 
@@ -49,6 +53,30 @@ public class BinarySearch implements Strategy {
     }
 
     //We reach here when the element does not exist in the array.
+    return -1;
+  }
+
+  private int binarySearchUsingIteration(int[] arr, int item) {
+    int lowerBound = 0;
+    int upperBound = arr.length - 1;
+
+    while(lowerBound <= upperBound) {
+
+      int mid = lowerBound + (upperBound - lowerBound)/2;
+
+      if(arr[mid] == item){
+        return mid;
+      }
+
+      if(item < arr[mid]){
+        upperBound = mid - 1;
+      }
+
+      if(item > arr[mid]){
+        lowerBound = mid + 1;
+      }
+    }
+
     return -1;
   }
 }

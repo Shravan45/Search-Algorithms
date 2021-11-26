@@ -25,7 +25,7 @@ public class Driver {
     }
 
     int[] arr = {1, 3, 4, 5, 2};
-    int resultIndex = context.executeStrategy(arr, 5);
+    int resultIndex = context.executeStrategy(arr, 3);
     if (resultIndex != -1) {
       System.out.println("Key exists at index " + resultIndex);
     } else {

@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 public class BinarySearch implements Strategy {
 
@@ -32,6 +34,11 @@ public class BinarySearch implements Strategy {
       }
     }
     return -1;
+  }
+
+  @Override
+  public int graphSearch(Map<Integer, List<Integer>> graph, int startNode, int item) {
+    return 0;
   }
 
   private int binarySearchUsingRecursion(int[] arr, int lowerBound, int upperBound, int item) {
